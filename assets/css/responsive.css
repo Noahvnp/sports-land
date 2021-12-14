@@ -1,0 +1,74 @@
+/* Responsive for Tablet & Mobile */
+@media (max-width: 1200px){
+    /*---------- Header CSS Start ----------*/
+    .header__nav-bar .nav-bar__items{
+      position: fixed;
+      display: block;
+			background: var(--bg-color);
+      min-width: 350px;
+      height: 100vh;
+      top: 0;
+      right: -100%;
+      padding: 10vh 10vw;
+      visibility: hidden;
+      overflow-y: auto;
+      transition: 0.5s;
+      transition-property: right, visibility;
+    }
+    
+    .nav-bar__item{
+      position: relative;
+      padding-bottom: 2em;
+      font-size: 3em;
+    }
+
+    .header__nav-bar .nav-bar__items.active{
+      right: 0;
+      visibility: visible;
+    }
+    
+    .header__icons .icon__btn {
+      font-size: 3em;
+      margin-left: 1em;
+    }
+
+    .close-btn{
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 40px;
+      height: 40px;
+      margin: 25px;
+      font-size: 2.5em;
+      cursor: pointer;
+    }
+
+    .menu-btn {
+      cursor: pointer;
+      display: inline-block;
+    }
+
+		.header .search-form {
+    	width: 400px;
+    	right: 0.8em;
+    	border-radius: 0;
+    }
+
+    .header .header__search-form.active { 
+			right: 0;
+			border-radius: 0;
+			border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
+    	border-bottom: 0.1rem solid rgba(0, 0, 0, 0.1);
+    }
+
+    .item__sub-btn > .fa-angle-down {
+    	display: none;
+    }
+    /*---------- Header CSS End ----------*/
+
+		/* Footer CSS */
+		.footer__credit {
+				font-size: 1.5em;
+		}
+}
