@@ -5,7 +5,7 @@
     --white-color: #FAFAFA;
     --black-color: #000;
     --red-color: #CB3737;
-    --text-color: #333;
+    --text-color: #2f3542;
     --bg-color: #f3f3f3;
     --box-shadow1: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
 }
@@ -55,6 +55,7 @@ html {
     transition: all 0.5s ease-in-out;
 }
 
+/* Thay đổi Header khi scroll */
 .sticky-header {
     padding: 0.8rem 6%;
     background: #E8E8E8;
@@ -64,7 +65,6 @@ html {
 
 @keyframes sticky-header {
     from { opacity: 0.3;}
-
     to { opacity: 1;}
 }
 
@@ -75,22 +75,38 @@ html {
     justify-content: center;
 }
 
-.nav-bar__items .nav-bar__item {
+.nav-bar__item {
     list-style: none;
     margin: 0 2rem;
 }
 
-.nav-bar__item a:hover {
-    color: var(--red-color);
-}
-
-.nav-bar__item a {
+.nav-bar__item > a {
     display: block;
     font-size: 1.9rem;
     text-decoration: none;
     text-transform: uppercase;
     font-weight: bold;
     color: var(--text-color);
+    position: relative;
+}
+
+.nav-bar__item > a:hover {
+    color: var(--red-color);
+}
+/* Thêm pseudo after để tạo hiệu ứng hover */
+.nav-bar__item > a::after {
+    content: "";
+    height: 3px;
+    width: 0;
+    background: var(--red-color);
+    bottom: -16px;
+    left: 0;
+    position: absolute;
+    transition: all 0.5s ease-in-out ;
+}
+
+.nav-bar__item > a:hover::after {
+    width: 100%;
 }
 
 .header__icons .icon__btn {
@@ -103,7 +119,7 @@ html {
 .header__icons .icon__btn:hover {
     color: var(--red-color);
 }
-
+/* CSS cho menu đa cấp (dropdown menu) */
 .nav-bar__item .item__sub-menu{
     position: absolute;
     background: var(--bg-color);
@@ -173,10 +189,11 @@ html {
 .more .more-menu .more-item{
     padding: 7px 0;
     box-shadow: inset 0px -30px 5px -30px rgba(255, 255, 255, 0.2);
-    transition: 0.3s;
+    transition:
+     0.3s;
 }
-
-.menu-btn , .close-btn{
+/* Không hiển thị khi ở PC, Laptop */
+.menu-btn, .close-btn{
     display: none;
 }
 
@@ -205,10 +222,6 @@ html {
 
 .header .header__search-form.active {
     top: 115%;
-}
-
-.search-form-container.active {
-    display: flex;
 }
 
 .header .search-form input {
@@ -258,7 +271,7 @@ main {
 
 .box-container__box-item h3 {
     font-size: 2.4rem;
-    color: var(--black-color);
+    color: var(--text-color);
     padding: 1rem 0;
 }
 
