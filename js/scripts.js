@@ -199,7 +199,7 @@ function changeProductList(type, element) {
     }
     element.style.background = '#CB3737'
 
-    document.getElementById(type).style.display = 'flex';
+    document.getElementById(type).style.display = 'grid';
 
     switch (type) {
         case 'trend':
