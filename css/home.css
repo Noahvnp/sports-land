@@ -590,13 +590,3 @@ ul.list__item li.active {
     font-size: 2rem;
     color: #222;
 }
-
-.box__content--size select {
-    font-size: 1.7rem;
-    color: #222;
-}
-.box__content--price {
-    font-size: 2rem;
-    color: #222;
-    padding: 1rem 0;
-}
