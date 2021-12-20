@@ -1,0 +1,872 @@
+/* 
+    File: style.css
+    @IT lecturer: B1910107	Phan Van Nam,
+                  B1906770	Thai Nhut Thien,
+                  B1906383	Nguyen Thanh Loi
+    @updated: Dec-19-2021
+*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
+:root {
+    --white-color: #FAFAFA;
+    --black-color: #000;
+    --red-color: #CB3737;
+    --text-color: #333;
+    --bg-color: #f3f3f3;
+    --box-shadow1: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    -webkit-transition: .2s linear;
+    transition: .2s linear;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+
+section {
+    padding: 3rem 9%;
+}
+/* --------------------------- Header CSS Start --------------------------- */
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background: var(--bg-color);
+    -webkit-box-shadow: var(--box-shadow1);
+    box-shadow: var(--box-shadow1);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 0.2rem 6%;
+    transition: all 0.5s ease-in-out;
+}
+
+/* Thay đổi Header khi scroll */
+.sticky-header {
+    padding: 0.8rem 6%;
+    background: #E8E8E8;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+    animation: sticky-header 1.5s ease forwards;
+}
+
+@keyframes sticky-header {
+    from {
+        opacity: 0.3;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.nav-bar__items {
+    position: relative;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.nav-bar__item {
+    list-style: none;
+    margin: 0 2rem;
+}
+
+.nav-bar__item>a {
+    display: block;
+    font-size: 1.9rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--text-color);
+    position: relative;
+}
+
+.nav-bar__item>a:hover {
+    color: var(--red-color);
+}
+
+/* Thêm pseudo after để tạo hiệu ứng hover */
+.nav-bar__item>a::after {
+    content: "";
+    height: 3px;
+    width: 0;
+    background: var(--red-color);
+    bottom: -16px;
+    left: 0;
+    position: absolute;
+    transition: all 0.5s ease-in-out;
+}
+
+.nav-bar__item>a:hover::after {
+    width: 100%;
+}
+
+.header__icons .icon__btn {
+    font-size: 2.5rem;
+    margin-left: 1.7rem;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.header__icons .icon__btn:hover {
+    color: var(--red-color);
+}
+
+.header__icons .icon__btn.cart-btn {
+    position: relative;
+}
+
+.header__icons .cart-btn .cart-btn__quantity {
+    height: 1.8rem;
+    width: 1.8rem;
+    position: absolute;
+    top: -0.5em;
+    right: -1em;
+    font-size: 1.5rem;
+    background-color: var(--red-color);
+    color: var(--white-color);
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 0.1em;
+}
+
+/* CSS cho menu đa cấp (dropdown menu) */
+.nav-bar__item .item__sub-menu {
+    position: absolute;
+    background: var(--bg-color);
+    top: 22px;
+    line-height: 40px;
+    list-style: none;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 5px 25px rgb(0 0 0 / 20%);
+    pointer-events: none;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: 0.3s;
+    transition-property: transform, opacity;
+}
+
+.nav-bar__item:hover .item__sub-menu {
+    pointer-events: all;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.item__sub-menu .sub-menu__sub-item {
+    position: relative;
+    background: var(--bg-color);
+    padding: 7px 0;
+    cursor: pointer;
+    box-shadow: inset 0px -30px 5px -30px rgba(255, 255, 255, 0.2);
+}
+
+.item__sub-menu .sub-menu__sub-item a {
+    color: var(--text-color);
+    font-size: 1.5em;
+    text-decoration: none;
+    padding: 15px;
+}
+
+.item__sub-menu .sub-menu__sub-item:hover,
+.more .more-menu .more-item:hover {
+    background: var(--red-color);
+}
+
+.sub-menu__sub-item:hover>a,
+.more-menu .more-item:hover a {
+    color: var(--white-color);
+}
+
+.item__sub-menu .sub-menu__sub-item:last-child:hover {
+    border-radius: 0 0 8px 8px;
+}
+
+.more .more-menu {
+    position: absolute;
+    background: var(--bg-color);
+    list-style: none;
+    top: 0;
+    left: 100%;
+    white-space: nowrap;
+    border-radius: 0 8px 8px 8px;
+    overflow: hidden;
+    pointer-events: none;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: 0.3s;
+    transition-property: transform, opacity;
+}
+
+.more:hover .more-menu {
+    pointer-events: all;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.more .more-menu .more-item {
+    padding: 7px 0;
+    color: var(--text-color);
+    box-shadow: inset 0px -30px 5px -30px rgba(255, 255, 255, 0.2);
+    transition: 0.3s;
+}
+/* Không hiển thị khi ở PC, Laptop */
+.menu-btn,
+.close-btn {
+    display: none;
+}
+
+.header .search-form {
+    position: absolute;
+    right: 2rem;
+    width: 50rem;
+    border-radius: .5rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 5.5rem;
+    -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    background: var(--white-color);
+    display: flex;
+}
+
+.header .header__search-form {
+    position: absolute;
+    right: 2rem;
+    top: -115%;
+}
+
+.header .header__search-form.active {
+    top: 115%;
+}
+
+.header .search-form input {
+    height: 100%;
+    width: 100%;
+    padding: 0 1.2rem;
+    font-size: 1.6rem;
+    color: var(--black-color);
+    text-transform: none;
+}
+
+.header .search-form label {
+    font-size: 2.5rem;
+    margin-right: 1.7rem;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.header .search-form label:hover {
+    color: var(--red-color);
+}
+/* --------------------------- Header CSS End --------------------------- */
+main {
+    margin-top: 100px;
+}
+/* --------------------------- Footer CSS Start -------------------------- */
+.footer {
+    background: var(--bg-color);
+    padding: 3rem 9%;
+    box-shadow: var(--box-shadow1);
+    text-transform: capitalize;
+}
+
+.footer_box-container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(25rem, 1fr))[auto-fit];
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 1.5rem;
+}
+
+.box-container__box-item h3 {
+    font-size: 2.4rem;
+    color: var(--black-color);
+    padding: 1rem 0;
+}
+
+.box-container__box-item p {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    padding-bottom: .5rem;
+}
+
+.box-container__box-item a {
+    font-size: 1.6rem;
+    color: var(--text-color);
+    padding: 1rem 0;
+    display: block;
+}
+
+.box-container__box-item a:hover {
+    color: var(--red-color);
+}
+
+.box-container__box-item a:hover i {
+    padding-right: 2rem;
+}
+
+.box-container__box-item a i {
+    padding-right: .5rem;
+    color: var(--red-color);
+}
+
+.box-item__form input[type="email"] {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    font-size: 1.6rem;
+    color: var(--black-color);
+    margin: 1rem 0;
+    text-transform: none;
+    box-shadow: var(--box-shadow1);
+}
+
+.box-item__form .form__subscribe-btn {
+    color: var(--white-color);
+    background: var(--red-color);
+    padding: 0.6em 1.6em;
+    box-shadow: var(--box-shadow1);
+    font-size: 1.6em;
+    opacity: 0.8;
+}
+
+.box-item__form .form__subscribe-btn:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.footer__credit {
+    background: var(--red-color);
+    color: var(--white-color);
+    text-align: center;
+    font-size: 2.5em;
+    padding: 1.4em;
+}
+
+#back-top {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--red-color);
+    box-shadow: var(--box-shadow1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 3em 1em;
+    z-index: 9999;
+}
+
+#back-top:hover {
+    cursor: pointer;
+}
+
+#back-top.fa-chevron-up {
+    font-size: 2em;
+    color: var(--white-color);
+}
+
+
+/*------------------------- CSS sản phẩm, File: sanpham.html -------------------------*/
+.cart-btn__quantity {
+    position: absolute;
+    top: 20px;
+    right: 84px;
+    font-size: 0.8em;
+}
+
+.banner--left {
+    position: absolute;
+    width: 9%;
+    animation: bannerleft 5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes bannerleft {
+    from {
+        top: 10%;
+    }
+    to {
+        top: 78%;
+    }
+}
+
+.banner--right {
+    position: absolute;
+    width: 9%;
+    right: 0px;
+    animation: bannerright 5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes bannerright {
+    from {
+        top: 10%;
+    }
+    to {
+        top: 78%;
+    }
+}
+
+.products__title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    padding: 1.2rem 0;
+    border-bottom: 0.1rem solid rgba(0, 0, 0, 0.1);
+    color: #222;
+}
+
+.products__title span {
+    font-size: 3rem;
+    color: #EE6F57;
+    padding-left: .7rem;
+}
+
+.products__title a {
+    margin-left: auto;
+    color: #666;
+    font-size: 2rem;
+}
+
+.products__title a:hover {
+    color: #EE6F57;
+}
+
+.products h2 {
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 4rem;
+    color: #2E4C6D;
+}
+
+.products__box-container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(25rem, 1fr))[auto-fit];
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 1.5rem;
+}
+
+/*CSS Products List Tab Trang Sản Phẩm*/
+#new,
+#best-sell {
+    display: none;
+}
+
+.list__item {
+    list-style-type: none;
+}
+
+.list__item li {
+    margin-top: 1rem;
+    display: inline-block;
+    padding: .8rem 3rem;
+    background: #DADDFC;
+    color: #222;
+    font-size: 1.7rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    margin: 0.5rem;
+}
+
+ul.list__item li.active {
+    background-color: #CB3737;
+}
+
+
+/*------------------------- CSS phụ kiện, File: phukien.html -------------------------*/
+.accessory__title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    padding: 1.2rem 0;
+    border-bottom: 0.1rem solid rgba(0, 0, 0, 0.1);
+    color: #222;
+}
+
+.accessory__title span {
+    font-size: 3rem;
+    color: #EE6F57;
+    padding-left: .7rem;
+}
+
+.accessory__title a {
+    margin-left: auto;
+    color: #666;
+    font-size: 2rem;
+}
+
+.accessory__title a:hover {
+    color: #EE6F57;
+}
+
+.accessory h2 {
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 4rem;
+    color: #2E4C6D;
+}
+
+.accessory__box-container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(25rem, 1fr))[auto-fit];
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 1.5rem;
+}
+
+
+/*--------------- CSS dùng chung cho sản phẩm và phụ kiện ---------------*/
+.box-container__box {
+    position: relative;
+    background: #f3f3f3;
+    text-align: center;
+    overflow: hidden;
+    border: groove 1px rgb(146, 96, 96);
+}
+
+.box-container:hover .box__icons {
+    top: 0;
+}
+
+.box__icons {
+    position: absolute;
+    top: -105%;
+    left: 0;
+    height: 30rem;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    background: rgba(243, 243, 243, 0.8);
+    gap: 1rem;
+}
+
+.box__icons a {
+    font-size: 2rem;
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    background: #fff;
+    -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    color: #666;
+}
+
+.box__icons a:hover {
+    background: #EE6F57;
+    color: #fff;
+}
+
+.box__image {
+    height: 30rem;
+    width: 100%;
+    overflow: hidden;
+}
+
+.box__image img {
+    height: 100%;
+    width: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.box__content {
+    padding: 1rem;
+}
+
+.box__content h3 {
+    font-size: 2rem;
+    color: #222;
+}
+
+.item-price {
+    font-size: 2rem;
+    color: #222;
+    padding: 1rem 0;
+}
+
+.box__content--size {
+    font-size: 1.7rem;
+    color: #EE6F57;
+}
+
+.box__content--size select {
+    font-size: 1.7rem;
+    color: #222;
+}
+
+/* -------------------- CSS giới thiệu. File: gioithieu.html --------------- */
+.about {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.about__image {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 40rem;
+    flex: 1 1 40rem;
+}
+
+.about__image img {
+    width: 100%;
+    padding: 2em;
+}
+
+.about__content {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 40rem;
+    flex: 1 1 40rem;
+}
+
+.about__content {
+    color: #EE6F57;
+    font-size: 2rem;
+}
+
+.about__content h3 {
+    color: var(--red-color);
+    font-size: 3rem;
+    padding-top: .5rem;
+}
+
+.about__content p {
+    color: #666;
+    font-size: 1.7rem;
+    line-height: 2;
+    padding: 1rem 0;
+}
+
+.about__content--btn {
+    font-size: 2rem;
+}
+
+/*---------------  CSS giỏ hàng. File: giohang.html --------------- */
+.shopping-card {
+    border-collapse: collapse; 
+    border: 1px solid var(--black-color);
+    box-shadow: var(--box-shadow1);
+    margin: auto;
+    padding: 20px;
+    margin: 3rem auto;
+    table-layout: fixed;
+    width: 100%;
+}
+.shopping-card th {
+    font-size: 1.8em;
+    font-weight: normal;
+    padding: 1em;
+    border-right: 1px solid var(--black-color);
+    border-bottom: 1px solid var(--black-color);
+}
+
+.shopping-card__header tr:first-child > th{
+    font-size: 2.8em;
+    background-color: var(--white-color);
+    height: 10vh;
+    padding: 10px 3px;
+}
+
+.shopping-card__header tr:last-child > th{
+    font-size: 2.2em;
+    font-weight: bold;
+    background-color: var(--bg-color);
+    padding: 10px 3px;
+}
+
+.shopping-card__heading {
+    color: var(--red-color);
+    text-transform: capitalize;
+}
+
+.shopping-card tr th {
+    overflow: hidden;
+}
+
+.shopping-card__body tr th:nth-child(2) img {
+    width: 80px;
+    height: 80px;
+}
+
+.shopping-card__footer tr th {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.shopping-card__footer tr th:last-child {
+    color: var(--red-color);
+    font-size: 1.8em;
+}
+
+.shopping-card__body tr th:last-child:hover,
+.shopping-card__footer tr th:last-child:hover {
+    color: #EE6F57;
+    cursor: pointer;
+}
+/*CSS Liên hệ*/
+
+.contact__banner {
+    width: 100%;
+}
+
+.contact__icons {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(29rem, 1fr))[auto-fit];
+    grid-template-columns: repeat(auto-fit, minmax(29rem, 1fr));
+    gap: 1.5rem;
+}
+
+.contact__icons .icon {
+    text-align: center;
+    border: 0.1rem solid rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    background-color: #DADDFC;
+}
+
+.contact__icons .icon i {
+    height: 6rem;
+    width: 6rem;
+    line-height: 6rem;
+    font-size: 2.5rem;
+    background: #CB3737;
+    color: #fff;
+    border-radius: 50%;
+}
+
+.contact__icons .icon h3 {
+    color: #222;
+    font-size: 2rem;
+    padding: 1rem 0;
+}
+
+.contact__icons .icon p {
+    color: #666;
+    font-size: 1.5rem;
+    line-height: 2;
+}
+
+.contact__form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.contact__form form {
+    padding: 2rem;
+    border: 0.2rem solid rgba(0, 0, 0, 0.1);
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 40rem;
+    flex: 1 1 40rem;
+}
+
+.contact__form form h3 {
+    font-size: 2.5rem;
+    padding-bottom: 1rem;
+    color: #222;
+}
+
+.contact__row form .form__inputBox {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.contact__form form .form__inputBox input {
+    width: 49%;
+}
+
+.contact__form form .inputBox--box,
+.contact__form form textarea {
+    padding: 1rem 1.2rem;
+    font-size: 1.6rem;
+    border: 0.1rem solid rgba(0, 0, 0, 0.1);
+    color: #222;
+    text-transform: none;
+    margin: .7rem 0;
+}
+
+.contact__form form textarea {
+    width: 100%;
+    height: 15rem;
+    resize: none;
+}
+
+.inputBox--btn {
+    margin-top: 1rem;
+    display: inline-block;
+    padding: .8rem 3rem;
+    background: var(--red-color);
+    color: #fff;
+    font-size: 1.7rem;
+    cursor: pointer;
+}
+
+.inputBox--btn:hover {
+    background-color: #EE6F57;
+}
+
+.contact__form .map {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 40rem;
+            flex: 1 1 40rem;
+    width: 100%;
+  }

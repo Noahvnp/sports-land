@@ -1,0 +1,129 @@
+/* 
+    File: log.css
+    @IT lecturer: B1906383	Nguyen Thanh Loi
+    @updated: Dec-19-2021
+*/
+/*=======CSS dang nhap=======*/
+.onl__seen h1{
+    color: brown;
+    font-size: 5em;
+}
+.List__dell{
+    margin-left: 100px;
+    font-size: 20px;
+    transform: translateX(-5%);
+}
+.List__cell{
+    margin-left: 40px;
+    font-size: 20px;
+}
+.look_chin{
+    text-align: center;
+}
+fieldset{
+    border:solid #CB3737;
+    border-radius: 5px;
+    text-align: center;
+}
+.form-phone{
+    border-radius: 3px;
+    padding-left: 15px;
+    border: solid burlywood;
+    margin-bottom: 15px;
+    margin-left: 500px;
+    margin-right: 500px;
+}    
+
+.form-key{
+    border-radius: 3px;
+    padding-left: 15px;
+    border: solid burlywood;
+    margin-bottom: 15px;
+    margin-left: 500px;
+    margin-right: 500px;
+}
+.form-name{
+    border-radius: 3px;
+    padding-left: 15px;
+    border: solid burlywood;
+    margin-bottom: 15px;
+    margin-left: 500px;
+    margin-right: 500px;
+
+}
+.fname{
+    font-size: 18px;
+}
+/*======CSS dang ky=========*/
+main {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+#form-reg{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+} 
+.onl__hord {
+    width: 400px ;
+}
+.onl__hord h1{
+    margin:0.5em;
+    font-size: 40px;
+    color: crimson;
+    font-family: fantasy;
+    letter-spacing: 3px;
+    text-align: center;
+}
+.List__dell{
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+.List__cell{
+    margin-left: 500px;
+    font-size: 20px;
+}
+
+fieldset{
+    border:solid #CB3737;
+    border-radius: 5px;
+    background: cornsilk;
+}
+
+.form__information{
+    border-radius: 3px;
+    padding-left: 15px;
+    border: solid burlywood;
+    margin-bottom: 15px;
+    margin-left: 500px;
+    margin-right: 500px;
+    margin-top: 10px;
+
+}
+.form__information input {
+    width: 300px;
+    padding: 10px;
+}
+.form__ifor{
+    font-size: 18px;
+}
+.submit__reg {
+    margin-right: 10px;
+}
+.btn__reg {
+    padding: 5px 15px;
+    background-color: rgb(15, 179, 10);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 1);
+}
+.submit__exit {
+    background-color: #CB3737;
+}
+.btn__reg:hover {
+    cursor: pointer;
+    background-color: #EE6F57;
+}

@@ -1,3 +1,8 @@
+/* 
+    File: template.css
+    @IT lecturer: B1910107	Phan Van Nam
+    @updated: Dec-19-2021
+*/
 /* Import Google Font */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
 /* Đặt biến để tiện sử dụng lại và thay đổi */
@@ -207,6 +212,7 @@ html {
     position: absolute;
     right: 2rem;
     width: 50rem;
+    display: none;
     border-radius: .5rem;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -216,8 +222,7 @@ html {
     height: 5.5rem;
     -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
             box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-    background: var(--white-color);
-    display: flex;
+    display:  flex;
 }
 
 .header .header__search-form {
@@ -267,7 +272,7 @@ main {
     text-transform: capitalize;
 }
 
-.footer_box-container {
+.footer__box-container {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: (minmax(25rem, 1fr))[auto-fit];

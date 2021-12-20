@@ -1,26 +1,28 @@
 <!-- 
-    File: dangnhap.html
+    File: dangky.html
     @IT Lecturer: B1906383	Nguyen Thanh Loi,
     @support    :  B1910107	Phan Van Nam
     @updated: Dec-19-2021  
 -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shorcut icon" type="image/vnd.microsoft.icon" href="images/favicon.ico">
-    <title>Đăng Nhập</title>
+    <title>Đăng Ký</title>
 
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/log.css">
+    <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+
 </head>
 
 <body>
@@ -88,48 +90,56 @@
     </header>
     <!-- main section -->
     <main>
-        <fieldset class="onl__seen">
-            <h1>ĐĂNG NHẬP</h1>
-            <div class="look_chin">
-                <img src="images/login.png" id="userlogin">
-            </div>
-            <form action="./Trangchu.html" id="form-log" onsubmit="return login()">
-                <tr>
-                    <label class="fname">Tên </label>
-                    <div class="form__information">
-                        <label><input type="text" name="name" placeholder="ten tai khoan..."></label>
-                    </div>
-                </tr>
-                <tr>
-                    <label class="fname">Email hoặc điện thoai</label>
-                    <div class="form__information">
-                        <label><input type="email" name="email" placeholder="Email hoac dien thoai..."></label>
-                    </div>
-                </tr>
-                <tr>
-                    <label class="fname">Mật khẩu</label>
-                    <div class="form__information">
-                        <label><input type="password" name="pw" placeholder="nhap mat khau..."></label>
-                    </div>
-                </tr>
-                </div>
-                <ul>
-                    <td colspan=2>
-                        <div class="List__dell"> Bạn quên <a href="#"> Mật khẩu?</a><br>
-                            <input type="checkbox" >Ghi nhớ mật khẩu ?
+        <fieldset class="onl__hord">
+            <h1>ĐĂNG KÝ</h1>
+            <form action="./dangnhap.html" id="form-reg" onsubmit="return register();">
+                <table>
+                    <tr>
+                        <label class="form__ifor"> Họ Tên </label>
+                        <div class="form__information">
+                            <label><input name="name" type="text" placeholder="Ten tai khoan..."></label>
                         </div>
-                    </td>
-                </ul>
-                <tr>
-                    <td colspan=2>
-                        <button class="btn__reg submit__reg" type="submit" >Đăng Nhập</button>
-                        <button class="btn__reg submit__exit" type="exit" >Hủy</button>
-                    </td>
-                </tr>
+                    </tr>
+                        <tr>
+                            <label class="form__ifor">Email hoặc điện thoai</label>
+                            <div class="form__information">
+                                <label><input name="email" type="email" placeholder="Email hoac dien thoai..."></label>
+                            </div>
+                        </tr>
+                        <tr>
+                            <label class="form__ifor">Mật khẩu</label>
+                            <div class="form__information">
+                                <label><input name="pw" type="password" placeholder="Nhap mat khau..."></label>
+                            </div>
+                        </tr>
+                        <tr>
+                            <label class="form__ifor">Nhập lại mật khẩu</label>
+                            <div class="form__information">
+                                <label><input name="pwsubmit" type="password" placeholder="Nhap lai mat khau..."></label>
+                            </div>
+                        </tr>
+                        </div>
+                        
+                        <br>
+                        <div class="form__ifor">
+                        <div class="cool_gotl">
+                            <span>Thông qua việc tạo tài khoản.<br>bạn đồng ý với<br><a href="#"> <u>Điều khoản & Chính sách của chúng tôi ?</u></a></span>
+                                <div><input type="checkbox" name="notseen" value="yes">Có</div>
+                        </div>
+                        </div>
+                        <br>
+                        <tr>
+                            <td colspan=2>
+                                <button class="btn__reg submit__reg" type="submit" >Đăng Ký</button>
+                                <button class="btn__reg submit__exit" type="exit" >Hủy</button>
+                            </td>
+                        </tr>
+                </table>
             </form>
         </fieldset>
     </main>
-    <!-- footer section -->
+
+    <!-- footer section  -->
     <div class="wrapper__footer">
         <footer class="footer">
             <div class="footer_box-container">
@@ -177,6 +187,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <!-- Javascripts file link -->
     <script src="js/scripts.js"></script>
+
 </body>
-    
 </html>
+
+    
+   

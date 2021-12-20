@@ -1,7 +1,6 @@
 <!-- 
-    File: dangnhap.html
-    @IT Lecturer: B1906383	Nguyen Thanh Loi,
-    @support    :  B1910107	Phan Van Nam
+    File: giohang.html
+    @IT Lecturer: B1910107	Phan Van Nam
     @updated: Dec-19-2021  
 -->
 <!DOCTYPE html>
@@ -11,20 +10,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shorcut icon" type="image/vnd.microsoft.icon" href="images/favicon.ico">
-    <title>Đăng Nhập</title>
-
-    <!-- font awesome cdn link  -->
+    <title>Giỏ Hàng</title>
+     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-    <!-- custom css file link  -->
-    <link rel="stylesheet" href="css/home.css">
-    <link rel="stylesheet" href="css/log.css">
+    
+    <!-- Custom CSS file link -->
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <!-- jquery link -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 </head>
-
 <body>
-    <!-- header section-->
+    <!-- Header section start -->
     <header class="header">
         <a href="trangchu.html" class="header__logo"><img src="images/logo.png" alt="logo"></a>
         <nav class="header__nav-bar">
@@ -85,51 +82,19 @@
             </form>
         </div>
 
-    </header>
-    <!-- main section -->
+    </header>css/
+    <!-- Header section end -->
+
     <main>
-        <fieldset class="onl__seen">
-            <h1>ĐĂNG NHẬP</h1>
-            <div class="look_chin">
-                <img src="images/login.png" id="userlogin">
-            </div>
-            <form action="./Trangchu.html" id="form-log" onsubmit="return login()">
-                <tr>
-                    <label class="fname">Tên </label>
-                    <div class="form__information">
-                        <label><input type="text" name="name" placeholder="ten tai khoan..."></label>
-                    </div>
-                </tr>
-                <tr>
-                    <label class="fname">Email hoặc điện thoai</label>
-                    <div class="form__information">
-                        <label><input type="email" name="email" placeholder="Email hoac dien thoai..."></label>
-                    </div>
-                </tr>
-                <tr>
-                    <label class="fname">Mật khẩu</label>
-                    <div class="form__information">
-                        <label><input type="password" name="pw" placeholder="nhap mat khau..."></label>
-                    </div>
-                </tr>
-                </div>
-                <ul>
-                    <td colspan=2>
-                        <div class="List__dell"> Bạn quên <a href="#"> Mật khẩu?</a><br>
-                            <input type="checkbox" >Ghi nhớ mật khẩu ?
-                        </div>
-                    </td>
-                </ul>
-                <tr>
-                    <td colspan=2>
-                        <button class="btn__reg submit__reg" type="submit" >Đăng Nhập</button>
-                        <button class="btn__reg submit__exit" type="exit" >Hủy</button>
-                    </td>
-                </tr>
-            </form>
-        </fieldset>
+        <section class="wrapper__shopping-card">
+            <table class="shopping-card">
+                <!-- Danh sách item giỏ hàng -->
+            </table>
+        </section>
     </main>
-    <!-- footer section -->
+
+
+    <!-- footer section start  -->
     <div class="wrapper__footer">
         <footer class="footer">
             <div class="footer_box-container">
@@ -173,10 +138,23 @@
     </div>
     <div id="back-top" class="fas fa-chevron-up"></div>
 
-    <!-- jquery link -->
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <!-- Javascripts file link -->
-    <script src="js/scripts.js"></script>
+    <!-- footer section ends -->
+
+
+
+	<!-- Javascripts file link -->
+	<script src="js/scripts.js"></script>
+    <script src="js/gioHang.js"></script>
+    <script>
+        // Gán đơn vị tiền tệ vào giá sản phẩm
+        var prices = document.querySelectorAll('.gia');         
+        prices.forEach(item => { 
+        item.innerText = item.innerText.toLocaleString('de-DE', {
+            style : 'currency', 
+            currency : 'VND'}); 
+        });
+
+        window.addEventListener('load', hienThiDanhSachItemGioHang, false); 
+    </script>
 </body>
-    
 </html>

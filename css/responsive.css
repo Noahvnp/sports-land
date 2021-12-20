@@ -1,3 +1,8 @@
+/* 
+    File: responsive.css
+    @IT lecturer: B1910107	Phan Van Nam
+    @updated: Dec-19-2021
+*/
 /* Responsive for Tablet & Mobile */
 @media (max-width: 1200px){
     /*---------- Header CSS Start ----------*/
@@ -14,6 +19,7 @@
       overflow-y: auto;
       transition: 0.5s;
       transition-property: right, visibility;
+      z-index: 9999999;
     }
     
     .nav-bar__item{
@@ -62,10 +68,24 @@
     	border-bottom: 0.1rem solid rgba(0, 0, 0, 0.1);
     }
 
+    .nav-bar__item .item__sub-menu,
     .item__sub-btn > .fa-angle-down {
     	display: none;
     }
+
+
     /*---------- Header CSS End ----------*/
+    .products__title span,
+    .accessory__title span {
+      font-size: 2rem;
+      color: #EE6F57;
+      padding-left: .7rem;
+    }
+
+    .about__image img {
+      width: 100%;
+      padding: 0.4em;
+    }
 
 		/* Footer CSS */
 		.footer__credit {
